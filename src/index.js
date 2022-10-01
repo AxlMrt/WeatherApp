@@ -1,10 +1,15 @@
+const submitBtn = document.getElementById('submitBtn');
+const form = document.querySelector('form');
+
 /* eslint-disable brace-style */
 async function fetchAPI() {
-  const cityName = document.querySelector('.meteo > h3');
-  const cityDegree = document.querySelector('.description > h2');
+  const cityName = document.querySelector('.meteo > h2');
+  const cityDegree = document.querySelector('.description > h1');
   const skyDescr = document.querySelector('.description > p');
+  const inputVal = document.getElementById('cityInput').value;
+
   try {
-    const weatherAPI = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=49.1192&lon=6.1768&appid=061d725856afac33f9b3d4fe6746dc51');
+    const weatherAPI = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=061d725856afac33f9b3d4fe6746dc51`);
     const weatherData = await weatherAPI.json();
     const weatherMain = weatherData.main;
     const weatherSys = weatherData.sys;
@@ -17,8 +22,18 @@ async function fetchAPI() {
   }
   // eslint-disable-next-line no-empty
   catch (err) {
-    console.log('Données introuvables', err);
+    // eslint-disable-next-line no-unused-expressions, no-sequences
+    cityDegree.textContent = 'Please, enter a valid city', err;
+    cityName.textContent = '';
+    skyDescr.textContent = '';
   }
 }
 
+function resetHandler(e) {
+  e.preventDefault();
+}
+
 fetchAPI();
+
+submitBtn.addEventListener('click', fetchAPI);
+form.addEventListener('submit', resetHandler);
