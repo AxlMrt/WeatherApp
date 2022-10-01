@@ -1,0 +1,1 @@
+!async function(){try{const a=await fetch("https://api.openweathermap.org/data/2.5/weather?lat=49.1192&lon=6.1768&appid=061d725856afac33f9b3d4fe6746dc51"),o=await a.json();console.log(o)}catch(a){console.log("Données introuvables",a)}}();
