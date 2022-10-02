@@ -14,20 +14,22 @@
     <title>App Meteo</title>
   </head>
   <body>
-    <h2>Weather App</h2>
-    <form>
-        <input type="text" id="cityInput" placeholder="Search for a city">
-        <input type="submit" value="Submit" id="submitBtn">
-    </form>
+    <div class="search">
+        <form>
+            <input type="text" id="cityInput" placeholder="Search for a city">
+            <input type="image" src="./img/magnify.png" id="submitBtn">
+        </form>
+    </div>
+    
     
     <main>
       <div class="meteo">
-        <h2></h2>
+        <div class="loading"></div>
+        <h2 class="city"></h2>
         <div class="description">
-            <h1></h1>
-            <p></p>
+            <h1 class="degree"></h1>
+            <p class="sky"></p>
         </div>
-        
       </div>
     </main>
   </body>

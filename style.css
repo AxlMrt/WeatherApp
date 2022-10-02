@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700;800&display=swap');
+
 *,
 *::before,
 *::after{
@@ -15,12 +17,16 @@ html{
 }
 
 body{
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(5px);
-    font-family: sans-serif;
+    background: rgba(0, 0, 0, 0.3);
+    font-family: Merriweather Sans;
+    padding: 2em;
     text-align: center;
-    color: white;
+    color: white !important;
+}
+
+form{
+    display: flex;
+    justify-content: center;
 }
 
 main{
@@ -29,4 +35,55 @@ main{
     justify-content: center;
     align-items: center;
     gap: 2em;
+}
+
+input{
+    background: none;
+    color: white !important;
+    font-size: 1.3em;
+    font-weight: 700;
+    border: none;
+    border-bottom: 2px solid white;
+    box-shadow: none;
+    outline: none;
+}
+
+input::selection{
+    background: none;
+    color: white;
+}
+
+input::placeholder{
+    color: rgba(250, 250, 250, 0.7);
+}
+
+.degree{
+    font-size: 4em;
+    font-weight: 800;
+    margin: .3em;
+}
+
+/*LOADER*/
+.loading{
+    width: 2rem;
+    height: 2rem;
+    border: 5px solid #f3f3f3;
+    border-top: 6px solid #9c41f2;
+    border-radius: 50%;
+    margin: auto;
+    display: none;
+    animation: spin 1s infinite linear;
+}
+
+.loading.display{
+    display: block;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
