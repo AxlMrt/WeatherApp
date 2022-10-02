@@ -1,6 +1,10 @@
 const submitBtn = document.getElementById('submitBtn');
 const form = document.querySelector('form');
 const loader = document.querySelector('.loading');
+
+const cityName = document.querySelector('.city');
+const cityDegree = document.querySelector('.degree');
+const skyDescr = document.querySelector('.sky');
 /* eslint-disable brace-style */
 
 function displayLoading() {
@@ -15,10 +19,8 @@ function hideLoading() {
 }
 
 async function fetchAPI() {
-  const cityName = document.querySelector('.city');
-  const cityDegree = document.querySelector('.degree');
-  const skyDescr = document.querySelector('.sky');
   const inputVal = document.getElementById('cityInput').value;
+
   try {
     const weatherAPI = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=061d725856afac33f9b3d4fe6746dc51`, { mode: 'cors' });
     const weatherData = await weatherAPI.json();
@@ -45,8 +47,6 @@ async function fetchAPI() {
 function resetHandler(e) {
   e.preventDefault();
 }
-
-fetchAPI();
 
 submitBtn.addEventListener('click', () => {
   displayLoading();
